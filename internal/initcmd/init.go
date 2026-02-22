@@ -23,11 +23,20 @@ func Run(root string, cloneRepo string) error {
 	}
 	configPath := filepath.Join(root, config.ConfigFilename)
 	if _, err := os.Stat(configPath); os.IsNotExist(err) {
-		content := "# cdm config\n# variables = [\"HOME\"]\n# [mappings]\n# \".bashrc\" = \"$HOME/.bashrc\"\n"
+		content := "variables = [\"HOME\"]\n\n# [mappings]\n# \".bashrc\" = \"$HOME/.bashrc\"\n"
 		if err := os.WriteFile(configPath, []byte(content), 0644); err != nil {
 			return err
 		}
 		ui.PrintSuccess("created " + configPath)
+	}
+	localPath := filepath.Join(root, config.LocalConfigFilename)
+	if _, err := os.Stat(localPath); os.IsNotExist(err) {
+		home, _ := os.UserHomeDir()
+		content := "# Local variable values (gitignored)\nHOME = \"" + strings.ReplaceAll(home, "\\", "\\\\") + "\"\n"
+		if err := os.WriteFile(localPath, []byte(content), 0644); err != nil {
+			return err
+		}
+		ui.PrintSuccess("created " + localPath)
 	}
 	gitignore := filepath.Join(root, ".gitignore")
 	const cdmIgnore = "\n.cdm/\n.local.cdm.toml\n"
