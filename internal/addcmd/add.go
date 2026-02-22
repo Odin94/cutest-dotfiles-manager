@@ -10,7 +10,7 @@ import (
 )
 
 func Run(root, sourcePath, targetDest string) error {
-	absSrc, err := filepath.Abs(sourcePath)
+	absSrc, err := resolveForRead(sourcePath)
 	if err != nil {
 		return err
 	}
@@ -18,8 +18,7 @@ func Run(root, sourcePath, targetDest string) error {
 	if err != nil {
 		return err
 	}
-	baseName := filepath.Base(absSrc)
-	destRel := baseName
+	destRel := filepath.ToSlash(filepath.Base(absSrc))
 	if targetDest != "" && !filepath.IsAbs(targetDest) && !strings.HasPrefix(targetDest, "$") {
 		destRel = filepath.ToSlash(filepath.Clean(targetDest))
 	}
@@ -38,12 +37,22 @@ func Run(root, sourcePath, targetDest string) error {
 	if cfg.Mappings == nil {
 		cfg.Mappings = make(map[string]string)
 	}
-	destPath := targetDest
-	if destPath == "" {
-		destPath = "$HOME/." + baseName
-	}
-	cfg.Mappings[destRel] = destPath
+	cfg.Mappings[destRel] = sourcePath
 	return writeConfig(root, cfg)
+}
+
+func resolveForRead(path string) (string, error) {
+	if strings.HasPrefix(path, "~/") || path == "~" {
+		home, err := os.UserHomeDir()
+		if err != nil {
+			return "", err
+		}
+		if path == "~" {
+			return home, nil
+		}
+		path = filepath.Join(home, path[2:])
+	}
+	return filepath.Abs(path)
 }
 
 func writeConfig(root string, cfg *config.Config) error {
