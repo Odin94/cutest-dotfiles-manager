@@ -3,10 +3,10 @@ package status
 import (
 	"fmt"
 
-	"github.com/cutest-tools/cutest-dotfiles-manager/internal/config"
-	"github.com/cutest-tools/cutest-dotfiles-manager/internal/runner"
-	"github.com/cutest-tools/cutest-dotfiles-manager/internal/state"
-	"github.com/cutest-tools/cutest-dotfiles-manager/internal/ui"
+	"cdm/internal/config"
+	"cdm/internal/runner"
+	"cdm/internal/state"
+	"cdm/internal/ui"
 )
 
 func Run(root string) error {

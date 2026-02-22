@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/cutest-tools/cutest-dotfiles-manager/internal/config"
+	"cdm/internal/config"
 	"github.com/pelletier/go-toml/v2"
 )
 

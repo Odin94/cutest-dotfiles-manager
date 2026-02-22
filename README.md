@@ -4,11 +4,11 @@ A dotfiles manager that keeps a mapping of repo files to config destinations and
 
 ## Install
 
-```bash
-go install github.com/cutest-tools/cutest-dotfiles-manager/cmd/cdm@latest
-```
+- **From a release**: [Releases](https://github.com/Odin94/cutest-dotfiles-manager/releases) → download the binary for your OS/arch and put it on your `PATH`.
+- **From source**: `go install github.com/Odin94/cutest-dotfiles-manager/cmd/cdm@latest` (ensure `$GOPATH/bin` or `$GOBIN` is on your `PATH`).
+- **Build locally**: `go build -o cdm ./cmd/cdm`.
 
-Or build from source: `go build -o cdm ./cmd/cdm`
+See [docs/INSTALL.md](docs/INSTALL.md) for details and how to create releases.
 
 ## Quick start
 
@@ -29,13 +29,14 @@ cdm apply
 
 | Command | Description |
 |--------|-------------|
+| `cdm init [repo]` | Create `.cdm/` and config; optionally clone `repo` then init. |
 | `cdm apply` | Copy mapped files to targets. Use `-d` / `--dry-run` to preview. |
 | `cdm diff` | Show diff between source and target for each mapping. |
 | `cdm status` | List source files changed since last apply. |
-| `cdm init [repo]` | Create `.cdm/` and config; optionally clone `repo` then init. |
 | `cdm add <path> [target-path]` | Copy file into repo and add mapping (relative source path). |
 | `cdm watch` | Watch source files and auto-apply (Ctrl+C to stop). |
 | `cdm undo-conflict-apply` | Restore targets from `.cdm/temp/` from the last apply. |
+| `cdm update` | Download latest release from GitHub; save as `cdm.new` and print replace instructions. |
 | `cdm help` / `cdm -h` | List commands and usage. |
 | `cdm completion bash \| zsh \| fish` | Generate shell completions. |
 

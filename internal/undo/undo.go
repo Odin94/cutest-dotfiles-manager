@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/cutest-tools/cutest-dotfiles-manager/internal/state"
-	"github.com/cutest-tools/cutest-dotfiles-manager/internal/ui"
+	"cdm/internal/state"
+	"cdm/internal/ui"
 )
 
 func Run(root string) error {

@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/cutest-tools/cutest-dotfiles-manager/internal/apply"
-	"github.com/cutest-tools/cutest-dotfiles-manager/internal/config"
+	"cdm/internal/apply"
+	"cdm/internal/config"
 	"github.com/fsnotify/fsnotify"
 )
 

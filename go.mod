@@ -1,4 +1,4 @@
-module github.com/cutest-tools/cutest-dotfiles-manager
+module cdm
 
 go 1.24.2
 
