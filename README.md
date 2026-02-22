@@ -6,7 +6,7 @@ A dotfiles manager that keeps a mapping of repo files to config destinations and
 
 - **From a release**: [Releases](https://github.com/Odin94/cutest-dotfiles-manager/releases) → download the binary for your OS/arch and put it on your `PATH`.
 - **From source**: `go install github.com/Odin94/cutest-dotfiles-manager/cmd/cdm/run@latest` (ensure `$GOPATH/bin` or `$GOBIN` is on your `PATH`).
-- **Build locally**: `go build -o cdm ./cmd/cdm/run`.
+- **Build locally**: `go mod tidy && go build -o cdm ./cmd/cdm/run`.
 
 See [docs/INSTALL.md](docs/INSTALL.md) for details and how to create releases.
 
@@ -17,7 +17,7 @@ cd your-dotfiles-repo
 cdm init
 cdm add ~/.bashrc
 # Edit .cdm.toml if needed (e.g. set variables in .local.cdm.toml)
-cdm applygo install github.com/Odin94/cutest-dotfiles-manager/cmd/cdm@latest
+cdm apply
 ```
 
 ## Config

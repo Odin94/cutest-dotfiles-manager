@@ -1,6 +1,6 @@
-# Binaries
-cdm
-cdm.exe
+# Binaries (root only so cmd/cdm/ source is not ignored)
+/cdm
+/cdm.exe
 *.exe
 *.dll
 *.so
