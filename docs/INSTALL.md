@@ -12,17 +12,17 @@
 Ensure Go is installed and `$GOPATH/bin` (or `$GOBIN`) is on your `PATH`, then:
 
 ```bash
-go install github.com/Odin94/cutest-dotfiles-manager/cmd/cdm@latest
+go install github.com/Odin94/cutest-dotfiles-manager/cmd/cdm/run@latest
 ```
 
-The binary will be at `$GOPATH/bin/cdm` (or `$GOBIN/cdm`).
+The binary will be named `run` and placed in `$GOPATH/bin` (or `$GOBIN`). Rename it to `cdm` if desired, or use **Option 3** to build a binary named `cdm` directly.
 
 ## Option 3: Build from source
 
 ```bash
 git clone https://github.com/Odin94/cutest-dotfiles-manager.git
 cd cutest-dotfiles-manager
-go build -o cdm ./cmd/cdm
+go build -o cdm ./cmd/cdm/run
 # Move 'cdm' (or cdm.exe on Windows) to a directory on your PATH
 ```
 

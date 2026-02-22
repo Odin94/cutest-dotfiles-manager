@@ -7,10 +7,10 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"cdm/internal/config"
-	"cdm/internal/runner"
-	"cdm/internal/state"
-	"cdm/internal/ui"
+	"github.com/Odin94/cutest-dotfiles-manager/internal/config"
+	"github.com/Odin94/cutest-dotfiles-manager/internal/runner"
+	"github.com/Odin94/cutest-dotfiles-manager/internal/state"
+	"github.com/Odin94/cutest-dotfiles-manager/internal/ui"
 )
 
 type ApplyResult struct {

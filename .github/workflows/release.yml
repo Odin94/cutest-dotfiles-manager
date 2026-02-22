@@ -38,7 +38,7 @@ jobs:
             if [ "$os" = "windows" ]; then
               out="${out}.exe"
             fi
-            GOOS=$os GOARCH=$arch go build -o "$out" ./cmd/cdm
+            GOOS=$os GOARCH=$arch go build -o "$out" ./cmd/cdm/run
           done
 
       - name: Upload release assets

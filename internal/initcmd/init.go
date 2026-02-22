@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"cdm/internal/config"
-	"cdm/internal/ui"
+	"github.com/Odin94/cutest-dotfiles-manager/internal/config"
+	"github.com/Odin94/cutest-dotfiles-manager/internal/ui"
 )
 
 func Run(root string, cloneRepo string) error {

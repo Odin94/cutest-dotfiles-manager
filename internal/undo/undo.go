@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"cdm/internal/state"
-	"cdm/internal/ui"
+	"github.com/Odin94/cutest-dotfiles-manager/internal/state"
+	"github.com/Odin94/cutest-dotfiles-manager/internal/ui"
 )
 
 func Run(root string) error {

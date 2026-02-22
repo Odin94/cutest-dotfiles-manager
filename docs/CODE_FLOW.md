@@ -1,6 +1,6 @@
 # Code flow by command
 
-Entry point: **`cmd/cdm/main.go`**. `main()` builds the root Cobra command, registers subcommands, and runs **`fang.Execute(context.Background(), root)`**, which handles parsing and dispatch. Each subcommand’s `RunE` is invoked with the parsed args and flags.
+Entry point: **`cmd/cdm/run/main.go`** (package main). It calls **`cdm.Run()`**. **`cmd/cdm/main.go`** (package cdm) defines **`Run()`**, which builds the root Cobra command, registers subcommands, and runs **`fang.Execute(context.Background(), root)`**, which handles parsing and dispatch. Each subcommand’s `RunE` is invoked with the parsed args and flags.
 
 Commands that need a repo root first call **`runner.GetConfigRoot(runner.Options{TraverseUpPrompt: true})`** in **`internal/runner/runner.go`**: **`GetConfigRoot`** uses **`config.ExistsInDir(cwd)`** and, if not found, **`config.FindConfigDir`**; if `TraverseUpPrompt` is true and still not found, it calls **`ui.ConfirmTraverseUp()`** (in **`internal/ui/prompt.go`**), then **`config.FindConfigDir(cwd, true, maxTraverseLevels)`** to search up to 5 parent dirs. The returned `root` is the directory that contains `.cdm.toml`.
 

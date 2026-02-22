@@ -1,4 +1,4 @@
-module cdm
+module github.com/Odin94/cutest-dotfiles-manager
 
 go 1.24.2
 

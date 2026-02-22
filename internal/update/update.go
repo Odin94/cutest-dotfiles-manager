@@ -10,7 +10,7 @@ import (
 	"runtime"
 	"strings"
 
-	"cdm/internal/ui"
+	"github.com/Odin94/cutest-dotfiles-manager/internal/ui"
 )
 
 const repo = "Odin94/cutest-dotfiles-manager"
