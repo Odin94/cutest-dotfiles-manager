@@ -1,8 +1,8 @@
-package cdm
+package cdmcmd
 
 import (
-	"github.com/Odin94/cutest-dotfiles-manager/internal/update"
 	"github.com/Odin94/cutest-dotfiles-manager/internal/ui"
+	"github.com/Odin94/cutest-dotfiles-manager/internal/update"
 	"github.com/spf13/cobra"
 )
 

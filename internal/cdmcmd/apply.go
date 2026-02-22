@@ -1,4 +1,4 @@
-package cdm
+package cdmcmd
 
 import (
 	"fmt"

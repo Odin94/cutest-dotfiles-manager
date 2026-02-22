@@ -5,8 +5,8 @@ A dotfiles manager that keeps a mapping of repo files to config destinations and
 ## Install
 
 - **From a release**: [Releases](https://github.com/Odin94/cutest-dotfiles-manager/releases) → download the binary for your OS/arch and put it on your `PATH`.
-- **From source**: `go install github.com/Odin94/cutest-dotfiles-manager/cmd/cdm/run@latest` (ensure `$GOPATH/bin` or `$GOBIN` is on your `PATH`).
-- **Build locally**: `go mod tidy && go build -o cdm ./cmd/cdm/run`.
+- **From source**: `go install github.com/Odin94/cutest-dotfiles-manager/cmd/cdm@latest` (ensure `$GOPATH/bin` or `$GOBIN` is on your `PATH`).
+- **Build locally**: `go mod tidy && go build -o cdm ./cmd/cdm`.
 
 See [docs/INSTALL.md](docs/INSTALL.md) for details and how to create releases.
 
@@ -25,7 +25,7 @@ cdm apply
 - **`.cdm.toml`** (committed): `variables`, `[mappings]`, optional `[mappings.windows]` / `[mappings.macos]` / `[mappings.linux]`, and `[scripts]` with `pre_apply` / `post_apply`.
 - **`.local.cdm.toml`** (gitignored): variable values (e.g. `HOME = "/Users/me"`). Resolved with higher priority than env.
 
-Example `.cdm.toml` with inline comments:
+Example `.cdm.toml`:
 
 ```toml
 # Variable names to substitute in mapping destinations. Values come from

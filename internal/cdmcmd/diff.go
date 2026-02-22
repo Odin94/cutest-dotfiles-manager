@@ -1,25 +1,25 @@
-package cdm
+package cdmcmd
 
 import (
+	"github.com/Odin94/cutest-dotfiles-manager/internal/diff"
 	"github.com/Odin94/cutest-dotfiles-manager/internal/runner"
-	"github.com/Odin94/cutest-dotfiles-manager/internal/status"
 	"github.com/Odin94/cutest-dotfiles-manager/internal/ui"
 	"github.com/spf13/cobra"
 )
 
-func statusCmd() *cobra.Command {
+func diffCmd() *cobra.Command {
 	return &cobra.Command{
-		Use:   "status",
-		Short: "Show which source files have been edited since last apply",
-		RunE:  runStatus,
+		Use:   "diff",
+		Short: "Show diff between source and target files for each mapping",
+		RunE:  runDiff,
 	}
 }
 
-func runStatus(cmd *cobra.Command, args []string) error {
+func runDiff(cmd *cobra.Command, args []string) error {
 	root, ok := runner.GetConfigRoot(runner.Options{TraverseUpPrompt: true})
 	if !ok {
 		ui.PrintError("no .cdm.toml found")
 		return errNoConfig
 	}
-	return status.Run(root)
+	return diff.Run(root)
 }

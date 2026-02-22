@@ -1,4 +1,4 @@
-package cdm
+package cdmcmd
 
 import (
 	"github.com/Odin94/cutest-dotfiles-manager/internal/runner"
