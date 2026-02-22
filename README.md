@@ -23,7 +23,38 @@ cdm apply
 ## Config
 
 - **`.cdm.toml`** (committed): `variables`, `[mappings]`, optional `[mappings.windows]` / `[mappings.macos]` / `[mappings.linux]`, and `[scripts]` with `pre_apply` / `post_apply`.
-- **`.local.cdm.toml`** (gitignored): variable values (e.g. `HOME = "/Users/me"`). Resolved after env.
+- **`.local.cdm.toml`** (gitignored): variable values (e.g. `HOME = "/Users/me"`). Resolved with higher priority than env.
+
+Example `.cdm.toml` with inline comments:
+
+```toml
+# Variable names to substitute in mapping destinations. Values come from
+# .local.cdm.toml first, then from the environment.
+variables = ["HOME", "XDG_CONFIG_HOME"]
+
+# Default mappings: source path in repo (key) -> destination path (value).
+# Use $VAR for substitution. Paths are relative to the repo root.
+[mappings]
+".bashrc" = "$HOME/.bashrc"
+".config/nvim/init.lua" = "$XDG_CONFIG_HOME/nvim/init.lua"
+
+# Optional: OS-specific mappings (merged with [mappings] for the current OS).
+# Only the section matching your OS (windows / darwin=macos / linux) is used.
+[mappings.windows]
+"windows-only.conf" = "$HOME/AppData/Roaming/app/settings.conf"
+
+[mappings.macos]
+# [mappings.macos] entries here
+
+[mappings.linux]
+# [mappings.linux] entries here
+
+# Scripts run around apply: paths relative to repo root. Missing or failed
+# scripts are reported; apply continues.
+[scripts]
+pre_apply = [".scripts/pre.sh"]
+post_apply = [".scripts/post.sh"]
+```
 
 ## Commands
 
@@ -43,7 +74,7 @@ cdm apply
 ## Shell completion
 
 ```bash
-cdm completion bash > /path/to/cdm-completion.bash
+cdm completion bash > /path/to/cdm-completion.bash   # or cdm completion fish/zsh/...
 # source it or install under your shell's completion dir
 ```
 
