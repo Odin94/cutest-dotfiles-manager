@@ -37,5 +37,3 @@ require (
 	golang.org/x/sys v0.37.0 // indirect
 	golang.org/x/text v0.24.0 // indirect
 )
-
-replace github.com/charmbracelet/x/cellbuf => github.com/charmbracelet/x/cellbuf v0.0.13-0.20250311204145-2c3ea96c31dd
