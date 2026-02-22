@@ -1,0 +1,4 @@
+variables = ["HOME"]
+
+[mappings]
+".bashrc" = "$HOME/.bashrc"

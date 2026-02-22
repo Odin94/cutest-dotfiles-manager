@@ -1,0 +1,30 @@
+# Binaries
+cdm
+cdm.exe
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Go
+/vendor/
+*.test
+*.out
+coverage.html
+coverage.txt
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local / env
+.env
+.env.local
+*.local
